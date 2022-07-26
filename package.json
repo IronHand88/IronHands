@@ -1,0 +1,21 @@
+{
+  "name": "amazona1.13",
+  "version": "1.0.0",
+  "description": "Install Tools 3. Create React App 4. Create Git Repository 5. List Products",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IronHand88/amazona.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IronHand88/amazona/issues"
+  },
+  "homepage": "https://github.com/IronHand88/amazona#readme"
+}
