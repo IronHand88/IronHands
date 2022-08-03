@@ -34,6 +34,8 @@ const reducer = (state, action) => {
   }
 };
 
+/*
+
 const prices = [
   {
     name: '$1 to $50',
@@ -70,7 +72,7 @@ export const ratings = [
     rating: 1,
   },
 ];
-
+*/
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
