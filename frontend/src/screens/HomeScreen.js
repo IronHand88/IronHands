@@ -43,7 +43,7 @@ function HomeScreen() {
 
   return (
     <div>
-      <h1>Featured Products</h1>
+      <h1>Main Inventory</h1>
       <div className="products">
         {loading ? (
           <LoadingBox />

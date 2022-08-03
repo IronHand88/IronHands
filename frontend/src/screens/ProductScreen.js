@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-import Rating from '../components/Rating';
+//import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
@@ -83,13 +83,20 @@ function ProductScreen() {
             <ListGroup.Item>
               <title>{product.name}</title>
               <p> Serial ID: </p>
-              <h1>{product.name}</h1>
+              {product.name}
             </ListGroup.Item>
-            <ListGroup.Item></ListGroup.Item>
-            <ListGroup.Item>{product.price}</ListGroup.Item>
+
+            <ListGroup.Item>
+              Calibration Date:
+              <p> {product.price}</p>
+            </ListGroup.Item>
             <ListGroup.Item>
               Description:
               <p>{product.description}</p>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Category:
+              <p>{product.category}</p>
             </ListGroup.Item>
           </ListGroup>
         </Col>

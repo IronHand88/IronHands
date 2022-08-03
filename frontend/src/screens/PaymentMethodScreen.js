@@ -19,7 +19,7 @@ export default function PaymentMethodScreen() {
 
   useEffect(() => {
     if (!shippingAddress.address) {
-      navigate('/shipping');
+      navigate('/placeorder');
     }
   }, [shippingAddress, navigate]);
   const submitHandler = (e) => {
@@ -46,16 +46,7 @@ export default function PaymentMethodScreen() {
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
-          <div className="mb-3">
-            <Form.Check
-              type="radio"
-              id="Stripe"
-              label="Stripe"
-              value="Stripe"
-              checked={paymentMethodName === 'Stripe'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-          </div>
+
           <div className="mb-3">
             <Button type="submit">Continue</Button>
           </div>

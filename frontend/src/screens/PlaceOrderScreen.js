@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Store } from '../Store';
-import CheckoutSteps from '../components/CheckoutSteps';
+//import CheckoutSteps from '../components/CheckoutSteps';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
 import LoadingBox from '../components/LoadingBox';
@@ -81,8 +81,6 @@ export default function PlaceOrderScreen() {
 
   return (
     <div>
-      <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-
       <title>Preview Order</title>
 
       <h1 className="my-3">Preview Order</h1>
@@ -90,7 +88,7 @@ export default function PlaceOrderScreen() {
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
-              <Card.Title>Shipping</Card.Title>
+              <Card.Title>Address</Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
                 <strong>Address: </strong> {cart.shippingAddress.address},
@@ -98,16 +96,6 @@ export default function PlaceOrderScreen() {
                 {cart.shippingAddress.country}
               </Card.Text>
               <Link to="/shipping">Edit</Link>
-            </Card.Body>
-          </Card>
-
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Payment</Card.Title>
-              <Card.Text>
-                <strong>Method:</strong> {cart.paymentMethod}
-              </Card.Text>
-              <Link to="/payment">Edit</Link>
             </Card.Body>
           </Card>
 
@@ -124,12 +112,15 @@ export default function PlaceOrderScreen() {
                           alt={item.name}
                           className="img-fluid rounded img-thumbnail"
                         ></img>{' '}
+                        <p>Serial ID:</p>
                         <Link to={`/product/${item.slug}`}>{item.name}</Link>
                       </Col>
+                      <p>Description:</p>
+                      <p>{item.description}</p>
                       <Col md={3}>
+                        <p> Quantity</p>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -143,34 +134,6 @@ export default function PlaceOrderScreen() {
             <Card.Body>
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Items</Col>
-                    <Col>${cart.itemsPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Shipping</Col>
-                    <Col>${cart.shippingPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>Tax</Col>
-                    <Col>${cart.taxPrice.toFixed(2)}</Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Row>
-                    <Col>
-                      <strong> Order Total</strong>
-                    </Col>
-                    <Col>
-                      <strong>${cart.totalPrice.toFixed(2)}</strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-grid">
                     <Button

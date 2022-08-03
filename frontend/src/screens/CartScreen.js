@@ -37,14 +37,14 @@ export default function CartScreen() {
 
   return (
     <div>
-      <title>Shopping Cart</title>
+      <title>Order Cart</title>
 
-      <h1>Shopping Cart</h1>
+      <h1>Order Cart</h1>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
             <MessageBox>
-              Cart is empty. <Link to="/">Go Shopping</Link>
+              Cart is empty. <Link to="/">Go Back to Inventory</Link>
             </MessageBox>
           ) : (
             <ListGroup>
@@ -57,9 +57,13 @@ export default function CartScreen() {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
+                      <p>Serial ID:</p>
                       <Link to={`/product/${item.slug}`}>{item.name}</Link>
                     </Col>
                     <Col md={3}>
+                      <p>Description:</p>
+                      <p>{item.description}</p>
+                      <p> Quantity:</p>
                       <Button
                         onClick={() =>
                           updateCartHandler(item, item.quantity - 1)
@@ -80,7 +84,7 @@ export default function CartScreen() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>
                     </Col>
-                    <Col md={3}>${item.price}</Col>
+                    <p> Delete</p>
                     <Col md={2}>
                       {' '}
                       <Button
@@ -101,13 +105,6 @@ export default function CartScreen() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h3>
-                    Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
-                  </h3>
-                </ListGroup.Item>
-                <ListGroup.Item>
                   <div className="d-grid">
                     <Button
                       type="button"
@@ -115,7 +112,7 @@ export default function CartScreen() {
                       onClick={checkoutHandler}
                       disabled={cartItems.length === 0}
                     >
-                      Proceed to Checkout
+                      Proceed to Order
                     </Button>
                   </div>
                 </ListGroup.Item>
